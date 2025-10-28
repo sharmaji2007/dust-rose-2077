@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { HolographicRobotDisplay } from "./components/HolographicRobotDisplay";
 import { AITargetingHeatmap } from "./components/AITargetingHeatmap";
@@ -18,13 +18,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 type EmotionState = 'calm' | 'aggressive' | 'tactical' | 'protective';
 
 export default function App() {
-  const [systemHealth, setSystemHealth] = useState(85);
   const [emotionState, setEmotionState] = useState<EmotionState>('calm');
   const [emotionIntensity, setEmotionIntensity] = useState(0.5);
   const [adaptiveColor, setAdaptiveColor] = useState('#00FFFF');
   const [rageModeActive, setRageModeActive] = useState(false);
   const [activeTab, setActiveTab] = useState('combat');
-  const [connectionStatus, setConnectionStatus] = useState('CONNECTED');
+  const connectionStatus = 'CONNECTED';
 
   // Adaptive Emotion Engine - changes UI based on robot's state
   useEffect(() => {
